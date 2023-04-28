@@ -28,12 +28,12 @@ public class OrderSystem {
     }
 
     public void placeOrder(String id) {
-        try {
-            Menu menu = menuMap.get(id);
-            System.out.println("You ordered: " + menu.getName() + " for " + menu.getPrice() + "€");
-        } catch (OrderNotFoundException e) {
-            System.out.println(e.getMessage());
+        if (!menuMap.containsKey(id)) {
+            throw new OrderNotFoundException("Order with id " + id + " not found");
         }
+        Menu menu = menuMap.get(id);
+        System.out.println("You ordered: " + menu.getName() + " for " + menu.getPrice() + "€");
+
 
     }
 

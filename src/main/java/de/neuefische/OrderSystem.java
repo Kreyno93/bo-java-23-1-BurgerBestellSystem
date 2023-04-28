@@ -28,7 +28,7 @@ public class OrderSystem {
 
     public void placeOrder(String id) {
         Menu menu = menuMap.get(id);
-        System.out.println("You ordered: " + menu.getName());
+        System.out.println("You ordered: " + menu.getName() + " for " + menu.getPrice() + "€");
     }
 
     public OrderSystem(Map<String, Menu> menuMap) {

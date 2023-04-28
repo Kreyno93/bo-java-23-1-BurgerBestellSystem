@@ -11,7 +11,7 @@ public class Main {
         String id = sc.nextLine();
         orderSystem.placeOrder(id);
         try{
-            System.out.println(orderSystem.getOrderById(id));
+            orderSystem.getOrderById(id);
         } catch (OrderNotFoundException e) {
             System.out.println(e.getMessage());
         }

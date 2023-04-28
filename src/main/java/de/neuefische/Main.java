@@ -9,9 +9,8 @@ public class Main {
         System.out.println(orderSystem.getMenuMap());
         System.out.println("Please enter the id of the menu you want to order: ");
         String id = sc.nextLine();
-        orderSystem.placeOrder(id);
         try{
-            orderSystem.getOrderById(id);
+            orderSystem.placeOrder(id);
         } catch (OrderNotFoundException e) {
             System.out.println(e.getMessage());
         }

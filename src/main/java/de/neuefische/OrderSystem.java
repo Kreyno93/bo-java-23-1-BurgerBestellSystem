@@ -2,6 +2,7 @@ package de.neuefische;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class OrderSystem {
 
@@ -27,14 +28,19 @@ public class OrderSystem {
         return menuMap.get(id);
     }
 
-    public void placeOrder(String id) {
-        if (!menuMap.containsKey(id)) {
-            throw new OrderNotFoundException("Order with id " + id + " not found");
-        }
-        Menu menu = menuMap.get(id);
-        System.out.println("You ordered: " + menu.getName() + " for " + menu.getPrice() + "€");
-
-
+    public void placeOrder() {
+        Scanner sc = new Scanner (System.in);
+        System.out.println("Please enter the id of the menu you want to order: ");
+        String id = sc.nextLine();
+        System.out.println("You have ordered: " +
+                getOrderById(id).getMainDish() +
+                " with " +
+                getOrderById(id).getSideDish() +
+                " and " +
+                getOrderById(id).getBeverage() +
+                " for " +
+                getOrderById(id).getPrice()
+                + "€");
     }
 
     public OrderSystem(Map<String, Menu> menuMap) {

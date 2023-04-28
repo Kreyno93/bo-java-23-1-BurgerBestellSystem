@@ -17,8 +17,9 @@ public class OrderSystem {
     public OrderSystem() {
     }
 
-    public void addMenu(Menu menu) {
+    public Menu addMenu(Menu menu) {
         menuMap.put(menu.getId(), menu);
+        return menuMap.get(menu.getId());
     }
 
     public Menu getOrderById(String id) throws OrderNotFoundException {
